@@ -1,0 +1,46 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<div class="container bg">
+    <h1>Welcome To Login Page</h1>
+<div class="row">
+    <!--<div class="col-sm-6">
+        <img src="a.jpg" alt="No Image Found">
+    </div>-->
+    <div class="col-md-4 col-sm-4 col-xs-12"></div>
+
+<div class="col-md-4 col-sm-4 col-xs-12">
+
+<form method="POST" class="form-container">
+    {% csrf_token %}
+    {% if wrnguname %}
+       <script> alert('wrong emailid')</script>
+    {% endif %}
+    {% if wrngpass %}
+       <script> alert('wrong password')</script>
+    {% endif %}
+    {% if frgtpass %}
+       <script> alert('password has been sent to your email id')</script>
+    {% endif %}
+<h2>Login </h2>
+
+         <div class="form-group">
+        <label style="color:white;">User</label>
+        <input type="text" class="form-control" id="username" name="username" placeholder="username" class="username">
+         </div>
+
+        <div class="form-group">
+        <label style="color:white;">Password</label>
+        <input type="password" id="password" class="form-control"  name="password" class="password" placeholder="Password">
+        </div>
+
+        <button type="submit" class="btn btn-success btn-block">Submit</button>
+        <a href="{% url 'users:forgotpassword' %}">Forgot Password</a>
+
+
+</form>
+</div>
+<div class="col-md-4 col-sm-4 col-xs-12"></div>
+</div>
+</div>
+{% endblock content %}

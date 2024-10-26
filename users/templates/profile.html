@@ -1,0 +1,42 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+
+<div class="row">
+
+    <div class="col-sm-12">
+
+
+<form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <div class="form-group">
+   <!-- <label style="color:black;">-->
+            {% if profiledata %}
+
+               <div class="row">
+                   <div class="col-sm-3">
+                   <img height="150px" width="150px" class="profile" src="/media/{{profiledata.user_image}}"/>
+                   </div>
+                   <div class="col-sm-9 backcolor">
+                   <h1>Name:{{profiledata.user_name}}<br></h1>
+                   <h1>Mobile:{{profiledata.user_mobile}}<br></h1>
+                   <h1>DOB:{{ profiledata.user_dob }}<br></h1>
+                   <h1>Email:{{profiledata.user_email}}<br></h1>
+                   <a style="color:white;" class="btn btn-primary"
+                      href="/users/updateprofile/?id={{profiledata.user_email}}">Update</a>
+                   </div>
+               </div>
+                </div>
+
+          {% else %}
+            No data Found
+          {% endif %}
+
+
+        </div>
+</form>
+    </div>
+
+    </div>
+
+{% endblock content %}

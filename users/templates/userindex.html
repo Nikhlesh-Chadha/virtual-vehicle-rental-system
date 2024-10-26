@@ -1,0 +1,76 @@
+<!--<div class="container">-->
+{% extends 'adminbase.html' %}
+{% block content %}
+
+{% if usdata %}
+
+
+<h1> Cannot Book Vehicle </h1>
+
+
+{% else %}
+<div class="row" >
+    <div class="col-sm-12">
+    {% if vid %}
+        <form enctype="multipart/form-data" method="POST">
+          {% csrf_token %}
+           {% if mymsg %}
+       <script> alert('already registered')</script>
+    {% endif %}
+    <div class="form-group">
+         <img height="80px" width="160px"class="images" src="/media/{{book1.vehicle_image}}"/>
+    </div>
+
+    <div class="form-group">
+    <label class="addstaff">Vehicle id</label>
+    <input type="text" class="form-control" readonly="true" id="vehicle_id" name="vehicle_id"  value="{{ book1.vehicle_id }}" required>
+    </div>
+
+    <div class="form-group">
+    <label class="addstaff">Vehicle name</label>
+    <input type="text" class="form-control" readonly="true" id="vehicle_name" name="vehicle_name"  value="{{ book1.vehicle_name }}" required>
+    </div>
+    {% for i in book2 %}
+            {% if i.type_id == book1.type_id_id %}
+    <div class="form-group">
+    <label class="addstaff">Vehicle price</label>
+    <input type="text" class="form-control" readonly="true" id="type_price" name="type_price"  value="{{ i.type_price }}" required>
+    </div>
+            {% endif %}
+            {% endfor %}
+
+    <div class="form-group">
+    <label class="addstaff">Vehicle description</label>
+    <input type="text" class="form-control" readonly="true" id="vehicle_description" name="vehicle_description"  value="{{ book1.vehicle_description }}" required>
+    </div>
+
+    <div class="form-group">
+    <label class="addstaff">Booking startdate</label>
+        <input type="date" class="form-control"  placeholder="booking_startdate" id="booking_startdate" name="booking_startdate"  required/>
+    </div>
+
+    <div class="form-group">
+    <label class="addstaff">Booking enddate</label>
+        <input type="date" class="form-control" placeholder="booking_enddate" id="booking_enddate" name="booking_enddate" required>
+    </div>
+
+    <div class="form-group">
+    <label class="addstaff">Location</label>
+        <input type="text" class="form-control" placeholder="location" id="location" name="location"  required/>
+    </div>
+
+    <div class="form-group">
+    <label class="addstaff">pick up point</label>
+        <input type="text" class="form-control" placeholder="pickup_point" id="pickup_point" name="pickup_point" required/>
+    </div>
+    <input type="submit" style="..." value="booked" class="btn btn-success btn-block">
+
+</form>
+    {% else %}
+        <div><h1>Welcome</h1></div>
+    {% endif %}
+    </div>
+    </div>
+{% endif %}
+{% endblock content %}
+<!--</div>-->

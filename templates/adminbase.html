@@ -1,0 +1,103 @@
+{% load static from staticfiles %}
+
+<html>
+<head>
+    <title>bootstrap demo</title>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link type="text/css" rel="stylesheet" href="/assets/css/bootstrap.min.css"/>
+
+    <link type="text/css" rel="stylesheet" href="/assets/css/adminbase.css"/>
+    <link type="text/css" rel="stylesheet" href="/assets/css/staff.css"/>
+    <link type="text/css" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+
+<!--<link type="text/css" rel="stylesheet" href="/assets/css/login.css"/>-->
+    <!--<style type="text/css">
+        .navbar1-custom
+        {
+        background-color:#533B79;
+        }
+
+    </style -->
+</head>
+<body>
+<header>
+    <div class="top-title-bar">
+        <div class="container">
+    <a class="logo" href=""><img src="/assets/images/logoproject1.png"></a>
+    <h2 class="site-title">Virtual Vehicle Rental System</h2>
+            </div>
+    </div>
+
+
+</header>
+<div class="admin-main">
+<div class="container-fluid">
+    <div class="row pic">
+<div class="left-menu col-sm-3" style="padding:0px;">
+
+    <ul style="padding:0px;">
+       <li><a href="{% url 'company:companyindex' %}"><i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard</a></li>
+
+        {% if request.session.roleid == 3 %}
+        <li><a href="{% url 'company:addstaff' %}"><i class="fa fa-users" aria-hidden="true"></i>Add Staff</a></li>
+        <li><a href="{% url 'users:profile_info' %}"><i class="fa fa-user" aria-hidden="true"></i>Profile Update</a></li>
+        <li><a href="{% url 'users:change_pass' %}"><i class="fa fa-key" aria-hidden="true"></i>Change Password</a></li>
+        <li><a href="{% url 'staff:viewall' %}"><i class="fa fa-taxi" aria-hidden="true"></i>View All Vehicles</a>
+        {% elif request.session.roleid == 4  %}
+
+        <li><a href="{% url 'staff:add_vehiclestypes' %}"><i class="fa fa-ambulance" aria-hidden="true"></i>Add Vehicle Types</a></li>
+        <li><a href="{% url 'staff:add_company' %}"><i class="fa fa-building-o" aria-hidden="true"></i>Add Company</a></li>
+        <li><a href="{% url 'staff:vehicles' %}"><i class="fa fa-car" aria-hidden="true"></i>Vehicles</a>
+        <li><a href="{% url 'staff:viewcompany' %}"><i class="fa fa-eye" aria-hidden="true"></i>View Company</a>
+        <li><a href="{% url 'staff:viewtype' %}"><i class="fa fa-bus" aria-hidden="true"></i>View Vehicle Type</a>
+        <li><a href="{% url 'users:profile_info' %}"><i class="fa fa-user" aria-hidden="true"></i>Profile Update</a></li>
+        <li><a href="{% url 'users:change_pass' %}"><i class="fa fa-key" aria-hidden="true"></i>Change Password</a></li>
+        <li><a href="{% url 'staff:viewall' %}"><i class="fa fa-taxi" aria-hidden="true"></i>View All Vehicles</a>
+        {% elif request.session.roleid == 2  %}
+        <li><a href="{% url 'users:mybooking' %}"><i class="fa fa-book" aria-hidden="true"></i>My Bookings</a></li>
+        <li><a href="{% url 'users:profile_info' %}"><i class="fa fa-user" aria-hidden="true"></i>Profile Update</a></li>
+        <li><a href="{% url 'users:change_pass' %}"><i class="fa fa-key" aria-hidden="true"></i>Change Password</a></li>
+        <li><a href="{% url 'staff:viewall' %}"><i class="fa fa-taxi" aria-hidden="true"></i>View All Vehicles</a>
+        {% elif request.session.roleid == 1  %}
+        <li><a href="{% url 'bussinessuser:add_vehicle' %}"><i class="fa fa-car" aria-hidden="true"></i>Add Vehicles</a>
+        <li><a href="{% url 'bussinessuser:viewone' %}"><i class="fa fa-taxi" aria-hidden="true"></i>View  Vehicles</a>
+
+        {% endif %}
+
+
+        <li><a href="{% url 'company:logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
+            <ul>
+               <li>Insert</li>
+               <li>Insert</li>
+               <li>Insert</li>
+           </ul>
+        </li>
+    </ul>
+</div>
+        <div class="content-area col-sm-9">
+                    {% block content %}
+
+        {% endblock content %}
+        </div>
+
+</div>
+</div>
+</div>
+
+
+
+<footer>
+    <div class="container">
+<p class="text-center"> &copy; Copyrights Reserved</p>
+    </div>
+</footer>
+
+
+     <script src="/assets/js/jquery.js"></script>
+	 <script src="/assets/js/bootstrap.min.js"></script>
+</body>
+</html>

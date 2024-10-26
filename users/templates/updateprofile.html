@@ -1,0 +1,42 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+<div class="row" >
+    <div class="col-sm-12">
+
+
+<h1 class="addhead"> Update Profile{{ emailid }}</h1>
+<form enctype="multipart/form-data" method="POST">
+     <!--{form.as_p}-->
+    {% csrf_token %}
+     <div class="form-group">
+        <label class="addstaff">user_name</label>
+        <input type="text" class="form-control" id="user_name" name="user_name" value="{{ profile.user_name }}" >
+    </div>
+    <div class="form-group">
+    <label class="addstaff">User_Mobile</label>
+        <input type="text" class="form-control" id="mobilenumber" name="mobilenumber" value="{{ profile.user_mobile }}">
+    </div>
+    <div class="form-group">
+        <label class="addstaff">User_dob</label>
+        <input type="text" class="form-control" id="dob" name="dob" value="{{ profile.user_dob }}">
+    </div>
+
+    <div class="form-group">
+    <label class="addstaff">User Email</label>
+        <input type="email" class="form-control" readonly="true" id="emailid" name="emailid" value="{{ profile.user_email }}">
+    </div>
+
+    <div class="form-group">
+    <label class="addstaff">user_image</label>
+        <input type="file" class="addstaff" accept="image/*" placeholder="Profile Pic" id="user_image" name="user_image"/>
+        <br><img src="/media/{{ profile.user_image }}" height="50px" width="50px">
+    </div>
+
+     <input type="submit" style="..." value="update" class="btn btn-success btn-block">
+     <input type="submit" style="..." value="cancel" class="btn btn-success btn-block">
+
+
+</form>
+    </div>
+    </div>
+{% endblock content %}

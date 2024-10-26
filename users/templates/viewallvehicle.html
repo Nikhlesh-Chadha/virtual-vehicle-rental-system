@@ -1,0 +1,55 @@
+{% extends 'booking.html' %}
+{% block content %}
+<div class="row" >
+
+    <div class="col-sm-12">
+
+        <form method="POST">
+    {% csrf_token %}
+
+    <div class="form-group">
+    <label>
+
+          {% if booked %}
+                     <script> function booked() { alert('already booked') }</script>
+                   {% endif %}
+
+         {% if view1 %}
+          {% for i in view1 %}
+               <div class="viewvehicle">
+                   <img height="80px" width="160px"class="images" src="/media/{{i.vehicle_image}}"/>
+                <br>
+                   Type:  {{i.type_id}}<br>
+                Company:  {{i.company_id}}<br>
+
+                Name:  {{i.vehicle_name}}<br>
+                <!--{{i.vehicle_description}}<br>-->
+                   {% for j in viewtype %}
+                   {% if i.type_id_id == j.type_id %}
+                   Price:  {{j.type_price}}<br>
+                   {% endif %}
+                   {% endfor %}
+
+                   {% if i.vehicle_isavaliable == 1 %}
+                   <a style="color:white;" class="btn btn-primary" href="/users/login/?id={{ i.vehicle_id }}">Book Now</a>
+                   {% endif %}
+
+                   {% if i.vehicle_isavaliable == 0 %}
+                   <a style="color:white;" class="btn btn-success" onclick="booked()" href="#">Booked</a>
+                   {% endif %}
+
+               </div>
+          {% endfor %}
+          {% else %}
+            No data Found
+          {% endif %}
+
+    </label>
+    </div>
+
+</form>
+
+
+    </div>
+</div>
+{% endblock content %}

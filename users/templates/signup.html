@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row" >
+    <div class="col-sm-12">
+<form enctype="multipart/form-data" method="POST" class="form-container_s sign">
+    {% csrf_token %}
+    {% if mymsg1 %}
+       <script> alert('successfully added user')</script>
+    {% endif %}
+
+    {% if mobileless %}
+       <script> alert('mobile number must be 10 digit')</script>
+    {% endif %}
+    {% if mobilegreater %}
+       <script> alert('mobile number must be 10 digit')</script>
+    {% endif %}
+    {% if passwd %}
+       <script> alert('password are not same')</script>
+    {% endif %}
+    <!--{% if startwith %}
+       <script> alert('mobile number must start with 7,8,9')</script>
+    {% endif %}-->
+
+    <h1 class="signh">Welcome To Signup Page</h1>
+
+    <div class="form-group">
+      <label for="sel1">Select list (select one):</label>
+      <select class="form-control" id="sel1" name="userrole">
+        <option value="1">Bussiness User</option>
+        <option value="2">Customer</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+    <label>User_name</label>
+    <input type="text" class="form-control" id="username" name="username" placeholder="username" required>
+    </div>
+
+    <div class="form-group">
+    <label>User Password</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required/>
+    </div>
+
+    <div class="form-group">
+    <label>Confirm Password</label>
+        <input type="password" class="form-control" id="conpassword" name="conpassword" placeholder="confirmPassword" required/>
+    </div>
+
+
+    <div class="form-group">
+    <label>User_Mobile</label>
+        <input type="text" class="form-control" id="mobilenumber" name="mobilenumber" placeholder="mobilenumber" required>
+    </div>
+
+    <div class="form-group">
+        <label>User_dob</label>
+        <input type="date" class="form-control" id="dob" name="dob" placeholder="username" required>
+    </div>
+
+    <div class="form-group">
+    <label>User Email</label>
+        <input type="email" class="form-control" id="emailid" name="emailid" placeholder="Email" required/>
+    </div>
+
+
+    <div class="form-group">
+    <label>User Image</label>
+        <input type="file" accept="image/*" placeholder="Profile Pic" id="user_image" name="user_image" required/></p>
+    </div>
+
+    <input type="submit" style="..." value="submit" class="btn btn-success btn-block">
+
+</form>
+</div>
+</div>
+
+{% endblock content %}
+

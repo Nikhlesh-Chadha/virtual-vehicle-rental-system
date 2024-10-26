@@ -1,0 +1,63 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+
+<div class="row" >
+
+    <div class="col-sm-12">
+
+        <form method="POST">
+    {% csrf_token %}
+            {% if mymsg1 %}
+            <script> alert('successfully canceled booking')</script>
+            {% endif %}
+            <h1 class="head"><marquee>My Bookings{{id}}</marquee></h1>
+    <div class="form-group">
+    <label>
+
+         {% if cancel1 %}
+          {% for i in cancel1 %}
+               <div class="bookdata viewbooking">
+                   <br>
+
+                   {% if book_data %}
+                   {% for j in book_data %}
+               <img width="250px" height="130px"  src="/media/{{ j.vehicle_image }}" /><br>
+                   {% endfor %}
+                   {% endif %}
+
+                   <h3>End Date:{{i.booking_enddate}}<br></h3>
+                   {% if book_data %}
+                   {% for j in book_data %}
+                   <h3>Name:{{ j.vehicle_name }}<br></h3>
+                   {% endfor %}
+                   {% endif %}
+
+                   {% if vehtype %}
+                   {% for k in vehtype %}
+                   <h3>Price:{{k.type_price}}<br></h3>
+
+                   {% endfor %}
+
+                   {% endif %}
+
+                   <a class="btn btn-primary" href="/users/cancel/?id={{ bkid }}&pr={{bprice}}&ue={{request.session.emailid}}&vehid={{bvehid}}">Cancel</a>
+
+
+
+                   <!--{% if i.vehicle_isavaliable == 0 %}
+                   <a style="color:white;" class="btn btn-success" href="#">cancel</a>
+                   {% endif %}-->
+               </div>
+        {% endfor %}
+
+          {% else %}
+            <h1>Currently you have no bookings</h1>
+          {% endif %}
+
+    </label>
+    </div>
+
+</form>
+    </div>
+</div>
+{% endblock content %}

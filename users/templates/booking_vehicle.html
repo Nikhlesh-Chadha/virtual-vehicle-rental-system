@@ -1,0 +1,50 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+
+<div class="row" >
+    <div class="col-sm-12">
+        <form enctype="multipart/form-data" method="POST" class="form-container">
+          {% csrf_token %}
+
+    <div class="form-group">
+    <label style="color:black;">Vehicle id</label>
+    <input type="text" class="form-control" id="vehicle_id" name="vehicle_id" placeholder="vehicle_id" value="{{ book1.vehicle_id }}" required>
+    </div>
+
+    <div class="form-group">
+    <label style="color:black;">Booking id</label>
+        <input type="text" class="form-control" id="booking_id" name="booking_id" placeholder="booking_id" value="{{ book1.booking_id }}" required/>
+    </div>
+
+    <div class="form-group">
+    <label style="color:black;">user email</label>
+        <input type="text" class="form-control" id="user_email" name="user_email" placeholder="user_email" value="{{ book1.user_email }}" required/>
+    </div>
+
+    <div class="form-group">
+    <label style="color:black;">Booking startdate</label>
+        <input type="text" class="form-control"  placeholder="booking_startdate" id="booking_startdate" name="booking_startdate" value="{{ book1.booking_startdate }}" required/>
+    </div>
+
+    <div class="form-group">
+    <label style="color:black;">Booking enddate</label>
+        <input type="text" class="form-control" placeholder="booking_enddate" id="booking_enddate" name="booking_enddate" value="{{ book1.booking_enddate }}" required>
+    </div>
+
+    <div class="form-group">
+    <label style="color:black;">Location</label>
+        <input type="text" class="form-control" placeholder="location" id="location" name="location" value="{{ book1.location }}" required/>
+    </div>
+
+    <div class="form-group">
+    <label style="color:black;">reviews</label>
+        <input type="text" class="form-control" placeholder="reviews" id="reviews" name="reviews" value="{{ book1.reviews }}" required/>
+    </div>
+
+
+    <input type="submit" style="..." value="booked" class="btn btn-success btn-block">
+
+</form>
+    </div>
+    </div>
+{% endblock content %}

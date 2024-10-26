@@ -1,0 +1,124 @@
+/*{
+margin:0px;
+padding:0px;}*/
+
+.top-title-bar{
+/*background:url('\\assets\\images\\preview.jpg') repeat;*/
+background-color:#1F1F1F;
+padding-top:10px;
+padding-bottom:10px;
+}
+.logo{
+float:left;
+}
+.site-title{
+color:#ffffff;
+text-align:center;
+font-size:30px;
+}
+
+.left-menu{
+background-color:#F5A908;
+/*background:url('\\assets\\images\\.jpg') repeat;*/
+height:100vh;
+width:41vh;
+}
+.left-menu ul{
+list-style-type:none;
+
+}
+.left-menu ul li{
+/*padding:10px 10px;*/
+border:2px solid white;
+background-color:#F5A908;
+width:300px;
+height:50px;
+line-height:50px;
+text-align:left;
+font-size:18px;
+/*color:red;*/
+}
+.left-menu ul ul
+{
+
+display:none;
+
+}
+.left-menu ul li:hover>ul
+{
+display:block;
+}
+.left-menu ul li:hover
+{
+background-color:black;
+opacity:0.7;
+}
+.left-menu ul li a
+{
+text-decoration:none;
+color:white;
+}
+.custom-container
+{
+padding:0px;
+}
+/*.dashboard1
+{
+color:black;
+float:left;
+margin-left:300px;
+}*/
+.form-container
+{
+border:1px solid #F5A908;;
+padding:20px 30px;
+/*margin-top:5vh;*/
+
+/*-webkit-box-shadow: 10px 10px 26px 6px rgba(0,0,0,1);*/
+/*-moz-box-shadow: 10px 10px 26px 6px rgba(0,0,0,1);*/
+box-shadow: 10px 10px 26px 6px #F5A908;;
+}
+/*profile css*/
+.profile
+{
+margin-top:30px;margin-left:20px;
+}
+/*.back
+{
+background:url('\\assets\\images\\pic4.jpg') repeat;height:100vh;
+
+}*/
+.backcolor
+{
+color:white;
+}
+.pic
+{
+/*background-color:#1F1F1F;*/
+background:url('\\assets\\images\\preview.jpg') repeat;
+}
+/*addstaff css,updateprofile,changepassword*/
+.addstaff
+{
+color:white;
+}
+.addhead
+{
+color:#F5A908;
+font-size:30px;
+}
+/*mybooking*/
+.viewbooking
+{
+border: 2px solid #efefef;
+    height: auto;
+    width: 350px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 15px;
+    margin-left: 30px;
+    margin-top: 30px;
+    float: left;
+    padding:10px 10px;
+    background-color: #fff;
+}

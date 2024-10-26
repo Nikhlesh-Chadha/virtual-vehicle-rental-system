@@ -1,0 +1,55 @@
+<!--<div class="container">-->
+{% extends 'adminbase.html' %}
+{% block content %}
+<div class="row" >
+    <div class="col-sm-12">
+
+
+<form enctype="multipart/form-data" method="POST">
+     <!--{form.as_p}-->
+    {% csrf_token %}
+    {% if mymsg %}
+       <script> alert('successfully added staff')</script>
+    {% endif %}
+    <h1 class="addhead">Add New Staff Member</h1><br>
+
+    <div class="form-group">
+    <label class="addstaff">User_name</label>
+    <input type="text" class="form-control" id="username" name="username" placeholder="username" required>
+    </div>
+
+
+    <div class="form-group">
+    <label class="addstaff">User_Mobile</label>
+        <input type="text" class="form-control" id="mobilenumber" name="mobilenumber" placeholder="mobilenumber" required>
+    </div>
+
+    <div class="form-group">
+        <label class="addstaff">User_dob</label>
+        <input type="date" class="form-control" id="dob" name="dob" placeholder="username" required>
+    </div>
+
+    <div class="form-group">
+    <label class="addstaff">User Email</label>
+        <input type="email" class="form-control" id="emailid" name="emailid" placeholder="Email" required/>
+    </div>
+
+    <div class="form-group">
+    <label class="addstaff">User Password</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required/>
+    </div>
+
+
+    <div class="form-group">
+    <label class="addstaff">User Image</label>
+        <input class="addstaff" type="file" accept="image/*" placeholder="Profile Pic" id="user_image" name="user_image" required/></p>
+    </div>
+
+    <input type="submit" value="submit" class="btn btn-success btn-block">
+
+</form>
+    </div>
+    </div>
+{% endblock content %}
+<!--</div>-->
+

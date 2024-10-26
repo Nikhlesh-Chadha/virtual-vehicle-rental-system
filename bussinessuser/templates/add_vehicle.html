@@ -1,0 +1,73 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+{% if usdata %}
+
+<h1> Cannot Add Vehicle </h1>
+
+
+{% else %}
+
+<div class="row" >
+    <div class="col-sm-12">
+        <form enctype="multipart/form-data" method="POST" >
+          {% csrf_token %}
+          {% if mymsg %}
+          <script> alert('successfully added vehicles')</script>
+          {% endif %}
+    <h1 class="addhead">Add Vehicles</h1><br>
+    <div class="form-group">
+
+      <label class="addstaff" for="sel1">Select list (select one):</label>
+      <select class="form-control" id="sel" name="companyrole">
+
+          {% if company %}
+          {% for i in company %}
+                <option value="{{i.company_id}}">{{i.company_name}}</option>
+
+          {% endfor %}
+
+          {% else %}
+            <option value="0">No data Found</option>
+          {% endif %}
+
+
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="addstaff" for="sel1">Select list (select one):</label>
+      <select class="form-control" id="sel1" name="typerole">
+          {% if vehicletype %}
+          {% for i in vehicletype %}
+                <option value="{{i.type_id}}">{{i.type_name}}</option>
+
+          {% endfor %}
+          {% else %}
+            <option value="0">No data Found</option>
+          {% endif %}
+
+      </select>
+    </div>
+
+    <div class="form-group">
+    <label class="addstaff">Vehicle Name</label>
+    <input type="text" class="form-control" id="vehicle_name" name="vehicle_name" placeholder="vehicle_name" required>
+    </div>
+
+    <div class="form-group">
+    <label class="addstaff">Vehicle Description</label>
+        <input type="text" class="form-control" id="vehicle_description" name="vehicle_description" placeholder="vehicle_description" required/>
+    </div>
+
+    <div class="form-group">
+    <label class="addstaff">Vehicle Image</label>
+        <input type="file" class="addstaff" accept="image/*" placeholder="vehicle_image" id="vehicle_image" name="vehicle_image" required/></p>
+    </div>
+
+    <input type="submit" style="..." value="submit" class="btn btn-success btn-block">
+
+</form>
+    </div>
+    </div>
+{% endif %}
+{% endblock content %}

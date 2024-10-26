@@ -1,0 +1,64 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+<div class="row" >
+    <div class="col-sm-12">
+
+
+<h1 class="addhead">Update Vehicle Info</h1>
+<form enctype="multipart/form-data" method="POST">
+     <!--{form.as_p}-->
+    {% csrf_token %}
+
+    <div class="form-group">
+    <label class="addstaff">vehicle_type</label>
+        <select class="form-control" id="vehicletype" name="vehicletype">
+        {% if vehicle.type_id_id == 1 %}
+         <option value=1>Sport utility vehicle</option>
+         <option value=2>Sedan</option>
+         <option value=3>Hatchback</option>
+
+        {% endif %}
+            {% if vehicle.type_id_id == 2 %}
+            <option value=2>Sedan</option>
+         <option value=1>Sport utility vehicle</option>
+
+        <option value=3>Hatchback</option>
+        {% endif %}
+            {% if vehicle.type_id_id == 5 %}
+          <option value=3>Hatchback</option>
+         <option value=1>Sport utility vehicle</option>
+          <option value=2>Sedan</option>
+
+        {% endif %}
+
+      </select>
+
+    </div>
+
+    <div class="form-group">
+        <label class="addstaff">vehicle_name</label>
+        <input type="text" class="form-control" id="vehicle_name" name="vehicle_name" value="{{ vehicle.vehicle_name }}" >
+    </div>
+
+    <div class="form-group">
+    <label class="addstaff">vehicle_description</label>
+        <textarea class="form-control" id="vehicle_description" name="vehicle_description" placeholder="vehicle_description">
+        {{ vehicle.vehicle_description }}
+        </textarea>
+
+    </div>
+
+
+    <div class="form-group">
+    <label class="addstaff">vehicle_image</label>
+        <input type="file" accept="image/*" class="addstaff" placeholder="Profile Pic" id="vehicle_image" name="vehicle_image"/>
+        <br><img src="/media/{{ vehicle.vehicle_image }}" height="50px" width="50px">
+    </div>
+
+    <input type="submit" style="..." value="update" class="btn btn-success btn-block">
+    <input type="submit" style="..." value="cancel" class="btn btn-success btn-block">
+
+</form>
+    </div>
+    </div>
+{% endblock content %}

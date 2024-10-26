@@ -1,0 +1,12 @@
+<!--<div class="container">-->
+{% extends 'adminbase.html' %}
+{% block content %}
+<div class="row" >
+    <div class="col-sm-12">
+
+<p style="color:red;position:absolute;margin-left:600px;font-size:20px;">welcome&nbsp;&nbsp;{{request.session.user_name}}</p>
+ <img style="position:absolute;margin-left:800px;" src="/media/{{request.session.user_image}}"/>
+    </div>
+    </div>
+{% endblock content %}
+<!--</div>-->

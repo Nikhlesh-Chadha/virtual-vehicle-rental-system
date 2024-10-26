@@ -1,0 +1,31 @@
+/*view vehicle css*/
+.viewvehicle
+{
+border:2px solid blue;height:auto;width:250px;text-align:
+center;font-size:20px;border-radius:35px;margin-left:30px;margin-top:30px;
+box-shadow:15px 15px 10px blue;float:left;background-color:#DAECF8;
+}
+.images
+{
+margin-top:10px;margin-left:20px;
+}
+.head
+{
+border:1px solid null;
+color:Navy;margin-left:30px;
+background-color:#DAECF8;
+}
+/*viewcompany css*/
+.viewcompany
+{
+border:2px solid blue;height:100px;width:250px;text-align:
+center;font-size:20px;border-radius:35px;margin-left:30px;margin-top:30px;
+box-shadow:5px 5px 10px blue;float:left;background-color:#D6DADD;
+}
+.viewtype
+{
+border:2px solid blue;height:150px;width:480px;text-align:
+center;font-size:20px;border-radius:35px;margin-left:30px;margin-top:30px;
+box-shadow:15px 15px 10px blue;float:left;background-color:#DAECF8;
+
+}

@@ -1,0 +1,31 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+
+<div class="row" >
+
+    <div class="col-sm-12">
+
+        <form method="POST">
+    {% csrf_token %}
+
+    <div class="form-group">
+    <label>
+
+         {% if viewtype %}
+          {% for i in viewtype %}
+               <div class="viewtype">
+                   <h1>Type:    {{i.type_name}}<br></h1>
+                   <h1>Price:   {{i.type_price}}</h1>
+               </div>
+          {% endfor %}
+          {% else %}
+            No data Found
+          {% endif %}
+
+    </label>
+    </div>
+
+</form>
+    </div>
+</div>
+{% endblock content %}

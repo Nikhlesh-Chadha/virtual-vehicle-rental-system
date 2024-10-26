@@ -1,0 +1,24 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+
+<div class="row" >
+
+    <div class="col-sm-12">
+
+
+<form method="POST">
+    {% csrf_token %}
+    {% if mymsg %}
+       <script> alert('successfully added vehicle company ')</script>
+    {% endif %}
+    <h1 class="addhead">Add Company </h1><br>
+    <div class="form-group">
+    <label class="addstaff">Company Name</label>
+    <input type="text" class="form-control" id="company_name" name="company_name" placeholder="company_name" required>
+    </div>
+    <input type="submit" style="..." value="submit" class="btn btn-success btn-block">
+
+</form>
+    </div>
+</div>
+{% endblock content %}

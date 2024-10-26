@@ -1,0 +1,31 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+
+<div class="row" >
+
+    <div class="col-sm-12">
+
+
+<form method="POST">
+    {% csrf_token %}
+
+    <div class="form-group">
+    <label>
+
+         {% if company1 %}
+          {% for i in company1 %}
+               <div class="viewcompany" >
+                   {{i.company_name}}
+               </div>
+          {% endfor %}
+          {% else %}
+            No data Found
+          {% endif %}
+
+    </label>
+    </div>
+
+</form>
+    </div>
+</div>
+{% endblock content %}
